@@ -1,38 +1,255 @@
-.App {
-  text-align: center;
+html {
+  height: 100%;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-image:linear-gradient(180deg, #54ddfc, #02a2c5);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.logo-grid-container {
+  display: grid;
+  grid-template-columns: repeat(11, 50px);
+  grid-template-rows: 50px;
+  padding:3% 0;
+  grid-column-gap: 1%;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.logo-letter-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
   color: white;
+  text-align: center;
+} 
+
+
+.box-shadow {
+  box-shadow: 4px 4px #555555;
 }
 
-.App-link {
-  color: #61dafb;
+@font-face {
+  font-family: 'Pixel';
+  src:  url(./assets/VT323-Regular.ttf);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.pixel-font {
+  font-family: 'Pixel';
+  font-weight: normal;
+  margin:0;
+}
+
+h1{
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 34px;
+}
+
+.sub-header {
+  grid-column: 1 / span 2;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h3.bold {
+  font-weight: bold;
+}
+
+span {
+  display: inline-block;
+  margin: 0;
+}
+
+.center {
+  color: white;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.postcard {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-column-gap: 3%;
+  text-align: center;
+  align-content: center;
+  max-width: 40%;
+  margin:0 auto;
+  padding: 2%;
+
+  box-sizing: border-box;
+  background-color: white;
+  border: 2px solid black;
+}
+
+canvas {
+  display: inline-block;
+  margin: 0 auto;
+  width: 100%;
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+
+.canvas-control {
+  display: grid;
+  /* align-content: center; */
+  align-content: space-between;
+  padding: 5% 10% 0 10%;
+}
+
+.loading {
+  background: rgb(58, 58, 58);
+  opacity: 0.7;
+  position: absolute;
+  top: 0;
+}
+
+.control-container {
+  margin-bottom: 5%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width:80%;
+  height: 10px;
+  background: white;
+  outline: none;
+  border: 2px black solid;
+  margin: 0;
+  margin-top: 5%;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #FF7A00;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #FF7A00;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.colour-palette {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: repeat(4, auto);
+  grid-column-gap: 1%;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 2% auto;
+  box-sizing: border-box;
+}
+
+.colour-palette div {
+  max-height: 50px;
+  max-width: 50px;
+  margin: 0 auto 10% auto;
+  /* margin-bottom: 10%; */
+  border: black 2px solid;
+  cursor: pointer;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-column-gap: 2%;
+  box-sizing: border-box;
+  justify-content: center;
+  align-self: stretch;
+}
+
+.btns {
+  box-sizing: border-box;
+  border: 2px solid black;
+  align-self: flex-end;
+  outline: none;
+  height: 50px;
+  color: white;
+  cursor: pointer;
+}
+
+.file-btn {
+    display: none;
+}
+
+@media only screen and (max-width: 1500px) {
+  .postcard {
+    max-width: 50%;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media only screen and (max-width: 900px) {
+  .postcard {
+    max-width: 70%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .postcard {
+    grid-template-columns: 100%;
+    max-width: 90%;
+    margin-bottom: 10%;
+  }
+
+  .sub-header {
+    margin-top: 2%;
+    grid-column: 1 / span 1;
+  }
+
+  .logo-grid-container {
+    grid-template-columns: repeat(11, 25px);
+    grid-column-gap: 5px;
+    grid-template-rows: 25px;
+    padding:5% 0 7% 0;
+  }
+
+  .box-shadow {
+    box-shadow: 2px 2px #989797;
+  }
+
+  h1{
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3, h3.bold {
+    font-size: 18px;
+  }
+
+  canvas, .loading {
+    width: 50%;
+    margin-bottom: 5%;
+  }
+
+  .loading {
+    left: 25%;
+  }
+
+  .slider{
+    height: 10px;
+    margin-top: 3%;
   }
 }
